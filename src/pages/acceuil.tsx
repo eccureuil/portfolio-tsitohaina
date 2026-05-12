@@ -23,13 +23,13 @@ export default function Accueil() {
       <section className="min-h-svh flex items-center pt-20 relative">
         <div className="container w-full">
           <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
-            <div className="flex-1 w-full">
+            <div className="flex-1 w-full min-w-0">
               <div className="inline-flex items-center gap-2 text-[0.72rem] tracking-[0.12em] uppercase px-3.5 py-1.5 rounded-full bg-purple-600/12 border-[0.5px] border-purple-400/28 text-accent-purple mb-8 animate-hero-fade">
                 <div className="w-1.5 h-1.5 rounded-full bg-accent-purple animate-pulse-dot" />
                 Disponible pour stage · Septembre 2026
               </div>
               <h1
-                className="font-display text-[clamp(2.4rem,4vw,4rem)] font-extrabold leading-[1.1] text-slate-100 animate-hero-fade"
+                className="font-display text-[clamp(2.4rem,4vw,4rem)] font-extrabold leading-[1.1] text-slate-100 break-words animate-hero-fade"
                 style={{ animationDelay: "0.1s" }}
               >
                 Bonjour, je suis{" "}
