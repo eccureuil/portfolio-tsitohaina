@@ -29,7 +29,7 @@ export default function Accueil() {
                 Disponible pour stage · Septembre 2026
               </div>
               <h1
-                className="font-display text-[clamp(2.4rem,4vw,4rem)] font-extrabold leading-[1.1] text-slate-100 break-words animate-hero-fade"
+                className="font-display text-[clamp(1.6rem,4vw,4rem)] font-extrabold leading-[1.1] text-slate-100 animate-hero-fade"
                 style={{ animationDelay: "0.1s" }}
               >
                 Bonjour, je suis{" "}
