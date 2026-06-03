@@ -36,7 +36,7 @@ export default function Accueil() {
                 <span className="gradient-text">Tsitohaina Rakotoniaina</span>
               </h1>
               <p
-                className="text-[1.1rem] font-light text-slate-100/60 leading-relaxed my-6 mb-10 max-w-[520px] animate-hero-fade"
+                className="text-[1.1rem] font-light text-slate-100/60 leading-relaxed my-6 mb-10 max-w-130 animate-hero-fade"
                 style={{ animationDelay: "0.2s" }}
               >
                 Développeur Full-Stack en 3&egrave;me ann&eacute;e de Licence
@@ -93,7 +93,7 @@ export default function Accueil() {
             />
             <Link
               to="/mes-projets"
-              className="btn-glass fade-in text-[0.82rem] px-[18px] py-2 mb-4"
+              className="btn-glass fade-in text-[0.82rem] px-4.5 py-2 mb-4"
             >
               Tous les projets &rarr;
             </Link>
@@ -117,7 +117,7 @@ export default function Accueil() {
             />
             <Link
               to="/about"
-              className="btn-glass fade-in text-[0.82rem] px-[18px] py-2 mb-4"
+              className="btn-glass fade-in text-[0.82rem] px-4.5 py-2 mb-4"
             >
               En savoir plus &rarr;
             </Link>
@@ -158,7 +158,7 @@ export default function Accueil() {
             <h2 className="font-display text-[clamp(1.8rem,3.5vw,2.5rem)] font-bold tracking-tight mb-4">
               Travaillons <span className="gradient-text">ensemble</span>
             </h2>
-            <p className="text-base text-slate-100/60 mb-8 max-w-[420px] mx-auto leading-relaxed">
+            <p className="text-base text-slate-100/60 mb-8 max-w-105 mx-auto leading-relaxed">
               Une opportunité de stage, un projet ou juste envie d'échanger ? Je
               suis disponible et motivé.
             </p>

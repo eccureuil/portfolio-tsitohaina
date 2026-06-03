@@ -1,16 +1,32 @@
-import type { FormEvent } from "react";
+import { useState, type FormEvent } from "react";
+import emailjs from "@emailjs/browser";
 import { useFadeIn } from "../hooks/useFadeIn";
+
+emailjs.init({ publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY });
 import SectionHeader from "../components/ui/SectionHeader";
 import { GithubIcon, LinkedinIcon, FacebookIcon } from "../components/ui/SocialIcons";
 
 export default function Contact() {
   useFadeIn();
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // TODO: intégrer un service d'envoi (EmailJS, Formspree, Web3Forms, etc.)
-    // Exemple Formspree : action="https://formspree.io/f/tonID"
-    // Exemple EmailJS : appeler emailjs.sendForm() ici
+    setStatus("sending");
+
+    try {
+      await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        e.currentTarget,
+      );
+      setStatus("sent");
+      e.currentTarget.reset();
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      setStatus("error");
+    }
   };
 
   return (
@@ -25,43 +41,56 @@ export default function Contact() {
               center
             />
 
-            <form onSubmit={handleSubmit} className="mt-12 fade-in">
-              <div className="form-group">
-                <label htmlFor="name" className="form-label">Nom</label>
-                <input
-                  id="name"
-                  name="from_name"
-                  type="text"
-                  className="form-input"
-                  placeholder="Votre nom"
-                  required
-                />
+            {status === "sent" ? (
+              <div className="mt-12 fade-in text-center">
+                <p className="text-accent-purple font-semibold text-lg">
+                  Message envoyé avec succès ! Je vous répondrai dans les plus brefs délais.
+                </p>
               </div>
-              <div className="form-group">
-                <label htmlFor="email" className="form-label">Email</label>
-                <input
-                  id="email"
-                  name="reply_to"
-                  type="email"
-                  className="form-input"
-                  placeholder="votre@email.com"
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="message" className="form-label">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  className="form-textarea"
-                  placeholder="Votre message..."
-                  required
-                />
-              </div>
-              <button type="submit" className="btn-primary w-full justify-center">
-                Envoyer
-              </button>
-            </form>
+            ) : (
+              <form onSubmit={handleSubmit} className="mt-12 fade-in">
+                <div className="form-group">
+                  <label htmlFor="name" className="form-label">Nom</label>
+                  <input
+                    id="name"
+                    name="from_name"
+                    type="text"
+                    className="form-input"
+                    placeholder="Votre nom"
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="email" className="form-label">Email</label>
+                  <input
+                    id="email"
+                    name="reply_to"
+                    type="email"
+                    className="form-input"
+                    placeholder="votre@email.com"
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="message" className="form-label">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    className="form-textarea"
+                    placeholder="Votre message..."
+                    required
+                  />
+                </div>
+                <button type="submit" className="btn-primary w-full justify-center" disabled={status === "sending"}>
+                  {status === "sending" ? "Envoi en cours…" : "Envoyer"}
+                </button>
+                {status === "error" && (
+                  <p className="text-red-400 text-sm text-center mt-4">
+                    Une erreur est survenue. Veuillez réessayer ou m'écrire directement par email.
+                  </p>
+                )}
+              </form>
+            )}
 
             <div className="mt-16 fade-in">
               <h3 className="font-display text-lg font-semibold text-center text-slate-100 mb-6">

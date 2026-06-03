@@ -2,10 +2,10 @@ import { createElement } from "react";
 import type { ReactNode } from "react";
 import {
   CloudSun,
-  CheckSquare,
+  /*CheckSquare,
   ShoppingCart,
   Sparkles,
-  MessageCircle,
+  MessageCircle,*/
   BarChart3,
   Palette,
   Cog,
@@ -45,7 +45,7 @@ export const projects: Project[] = [
     liveUrl: "https://demo.com",
     featured: true,
   },
-  {
+  /*{
     id: "task-flow",
     icon: createElement(CheckSquare, { size: 20 }),
     iconBg: "rgba(124,58,237,0.15)",
@@ -107,7 +107,19 @@ export const projects: Project[] = [
     githubUrl: "https://github.com",
     liveUrl: "https://demo.com",
     featured: false,
-  },
+  },*/
+  {
+    id: "Mon_argent",
+    icon: createElement(BarChart3, { size: 20 }),
+    iconBg: "rgba(52,211,153,0.15)",
+    name: "Mon_argent",
+    desc: "Application mobile pour la gestion d'argent personnelle.",
+    longDesc:
+      "Gestion de finances personnelles 100% hors-ligne. Suivi multi-comptes (Espèces, Mobile Money, Banque), épargne, factures avec notifications, graphiques analytiques. Dark/light mode. Devise Ariary (Ar). Projet personnel.",
+    tags: ["React", "TypeScript", "D3.js"],
+    githubUrl: "https://github.com/eccureuil/Mon_argent_apk.git",
+    featured: true,
+  }
 ];
 
 export const skillGroups: SkillGroup[] = [

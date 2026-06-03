@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: 'Syne', sans-serif;
+  --font-display: 'Poppins', sans-serif;
   --font-body: 'DM Sans', sans-serif;
 
   --color-aurora-1: #7c3aed;
