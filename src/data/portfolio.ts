@@ -116,7 +116,7 @@ export const projects: Project[] = [
     desc: "Application mobile pour la gestion d'argent personnelle.",
     longDesc:
       "Gestion de finances personnelles 100% hors-ligne. Suivi multi-comptes (Espèces, Mobile Money, Banque), épargne, factures avec notifications, graphiques analytiques. Dark/light mode. Devise Ariary (Ar). Projet personnel.",
-    tags: ["React", "TypeScript", "D3.js"],
+    tags: ["React Native", "TypeScript", "expo"],
     githubUrl: "https://github.com/eccureuil/Mon_argent_apk.git",
     featured: true,
   }
